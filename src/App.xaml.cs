@@ -20,7 +20,7 @@ namespace URLProtocol
             // 检查命令行参数
             if (e.Args.Length > 0)
             {
-                string decodedUrl = HttpUtility.UrlDecode(e.Args[0]);
+                string decodedUrl = Uri.UnescapeDataString(e.Args[0]);
 
                 // 解析出协议名 和 参数
                 (string protocol, string parameters) = RegistryHelper.ExtractProtocolAndRemove(decodedUrl);
